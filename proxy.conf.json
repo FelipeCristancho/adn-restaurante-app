@@ -1,0 +1,7 @@
+{
+  "/restaurante/*":{
+      "target" : "http://localhost:8083",
+      "securre" : false,
+      "logLevel" : "debug"
+  }
+}

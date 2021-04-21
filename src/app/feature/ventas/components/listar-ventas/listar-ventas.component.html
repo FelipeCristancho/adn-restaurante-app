@@ -1,0 +1,60 @@
+<div class="form-row">
+    <div class="col-md-6">
+        <h2 class="">Todas las ventas</h2>
+        <br>
+        <table class="table table-responsive table-striped mb-5">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Cliente</th>
+                    <th>Plato</th>
+                    <th>Precio</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of ventas">
+                    <td>{{item.id}}</td>
+                    <td>{{item.cliente}}</td>
+                    <td>{{item.plato}}</td>
+                    <td>{{item.precio}}</td>
+                    <td>{{item.fecha}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="form-row">
+            <div class="col-md-5"><h3 class="">Ventas de un Cliente</h3></div>
+            <div class="col-md-4">                
+                    <input type="text"  id="inputDni" placeholder="Identificacion" [(ngModel)] = "dni">                
+            </div>
+            <div class="col-md-3">
+                <button (click)= "getVentasUsuario()" [disabled] = "dni.length == 0" type="button" class="btn btn-primary btn-lg">Buscar</button>
+            </div>
+        </div>
+        <br>
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>                    
+                    <th>Cliente</th>
+                    <th>Plato</th>
+                    <th>Precio</th>
+                    <th>Fecha</th>
+                    <th>Promocion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of ventasUsuario">
+                    <td>{{item.cliente}}</td>
+                    <td>{{item.plato}}</td>
+                    <td>{{item.precio}}</td>
+                    <td>{{item.fecha}}</td>
+                    <td>{{item.promocion == true ? 'Si' : 'No'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

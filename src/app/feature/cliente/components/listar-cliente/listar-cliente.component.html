@@ -1,0 +1,45 @@
+<div class="form-row">
+    <div class="col-md-7 mb-2">
+        <h2 class="">Todos los clientes</h2>
+        <br>
+        <table class="table table-responsive table-striped mb-5">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Dni</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of clientes">
+                    <td>{{item.id}}</td>
+                    <td>{{item.dni}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>{{item.telefono}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="form-row mb-2">
+            <div class="col-md-12"><h4 class="">Cliente que mas compro</h4></div>
+        </div>
+        <br>
+        <div *ngFor="let item of MejorCliente">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p>Id : {{item.id}}</p>
+                <p>Dni : {{item.dni}}</p>
+                <p>Nombre : {{item.nombre}}</p>
+                <p>Apellido : {{item.apellido}}</p>
+                <p>telefono : {{item.telefono}}</p>
+                <p>total Compras : {{item.totalCompras}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>    
+</div>
