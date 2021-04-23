@@ -13,7 +13,7 @@ export class ClienteService {
   constructor(protected http : HttpService) { }
 
   public crear(cliente : Cliente){
-    return this.http.doPost<Cliente, Boolean>(`${this.URL}`,cliente);
+    return this.http.doPost<Cliente, boolean>(`${this.URL}`,cliente);
   }
 
   public listar(){
@@ -21,6 +21,6 @@ export class ClienteService {
   }
 
   public obtenerMejorCliente(){
-    return this.http.doGet<Cliente[]>(`${this.URL}/mejor`)
+    return this.http.doGet<Cliente[]>(`${this.URL}/mejor`);
   }
 }

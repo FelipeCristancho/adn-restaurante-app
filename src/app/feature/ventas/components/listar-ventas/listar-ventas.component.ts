@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class ListarVentasComponent implements OnInit {
 
-  dni = "";
+  dni = '';
   public listaVentas: Observable<Venta[]>;
-  public listaVentasUsuario : Observable<Venta[]>
+  public listaVentasUsuario : Observable<Venta[]>;
 
   constructor(private ventasService : VentasServiceService) { }
 

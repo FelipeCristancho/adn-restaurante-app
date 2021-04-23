@@ -10,8 +10,8 @@ import { VentasServiceService } from '../../shared/service/ventas-service.servic
 })
 export class PlatosComponent implements OnInit {
 
-  public masVendido : Observable<Plato[]>
-  public listaPlatos : Observable<Plato[]>
+  public masVendido : Observable<Plato[]>;
+  public listaPlatos : Observable<Plato[]>;
 
   constructor(protected ventaService : VentasServiceService) { }
 

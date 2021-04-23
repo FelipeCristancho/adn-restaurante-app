@@ -18,8 +18,7 @@ export class ComprarComponent implements OnInit {
   }
 
   comprar(){
-    this.ventasService.crear(this.compraForm.value).subscribe((data)=> {
-      console.log(data);
+    this.ventasService.crear(this.compraForm.value).subscribe(()=> {
      //alert('Compra realizada');
       }, err => alert(err.error.mensaje));
   }
@@ -28,7 +27,7 @@ export class ComprarComponent implements OnInit {
     this.compraForm = new FormGroup({
       cliente: new FormControl('', [Validators.required]),
       plato: new FormControl('', [Validators.required])
-    })
+    });
   }
 
 }

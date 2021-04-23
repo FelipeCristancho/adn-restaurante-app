@@ -13,6 +13,6 @@ export class Cliente {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.totalCompras = totalCompras
+        this.totalCompras = totalCompras;
     }
 }

@@ -23,7 +23,6 @@ export class CrearClienteComponent implements OnInit {
       console.log(data);
       //alert('Cliente creado correctamente');
     }, err => alert(err.error.mensaje));
-    console.log(this.clienteForm.value);
     this.clienteForm.reset();
   }
 
@@ -33,7 +32,7 @@ export class CrearClienteComponent implements OnInit {
       nombre: new FormControl('', [Validators.required]),
       apellido: new FormControl('', [Validators.required]),
       telefono: new FormControl('', [Validators.required]),
-    })
+    });
   }
 
 }

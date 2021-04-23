@@ -28,8 +28,8 @@ describe('VentasComponent', () => {
     const ficture = TestBed.createComponent(VentasComponent);
     ficture.detectChanges();    
     /*De esta manera se obtiene el valor del artefacto Html por el ID */
-    expect((<HTMLInputElement>document.getElementById('linkListarVentas')).textContent).toEqual('Listar Ventas');
-    expect((<HTMLInputElement>document.getElementById('linkListarPlatos')).textContent).toEqual('Platos');
-    expect((<HTMLInputElement>document.getElementById('linkComprar')).textContent).toEqual('Comprar');
+    expect((document.getElementById('linkListarVentas')).textContent).toEqual('Listar Ventas');
+    expect((document.getElementById('linkListarPlatos')).textContent).toEqual('Platos');
+    expect((document.getElementById('linkComprar')).textContent).toEqual('Comprar');
   }));
 });

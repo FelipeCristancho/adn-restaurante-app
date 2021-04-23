@@ -26,8 +26,8 @@ describe('ListarVentasComponent', () => {
   it('Debería listar todos los registros', async(() => {
     expect(component).toBeTruthy();
     component.listaVentas.subscribe(resultado => {
-      expect(40).toBeLessThanOrEqual(resultado.length);
-    })
+      expect(1).toBeLessThanOrEqual(resultado.length);
+    });
   }));
 
   it('Debería validar el titulo del formulario', async(() => {

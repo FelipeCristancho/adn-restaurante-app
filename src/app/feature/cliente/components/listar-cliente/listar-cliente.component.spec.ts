@@ -27,7 +27,7 @@ describe('ListarClienteComponent', () => {
     expect(component).toBeTruthy();
     component.listaClientes.subscribe(resultado => {
       expect(resultado.length).toBeGreaterThan(1);
-    })
+    });
   }));
 
   it('Debería validar el titulo del formulario', async(() => {
