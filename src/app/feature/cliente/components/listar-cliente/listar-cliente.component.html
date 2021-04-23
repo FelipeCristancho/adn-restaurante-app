@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of clientes">
+                <tr *ngFor="let item of listaClientes | async">
                     <td>{{item.id}}</td>
                     <td>{{item.dni}}</td>
                     <td>{{item.nombre}}</td>
@@ -23,23 +23,25 @@
             </tbody>
         </table>
     </div>
-    
+
     <div class="col-md-4">
         <div class="form-row mb-2">
-            <div class="col-md-12"><h4 class="">Cliente que mas compro</h4></div>
+            <div class="col-md-12">
+                <h3 class="">Cliente que mas compro</h3>
+            </div>
         </div>
         <br>
-        <div *ngFor="let item of MejorCliente">
+        <div id="mejorCliente" *ngFor="let item of MejorCliente | async">
             <ul class="list-group">
                 <li class="list-group-item">
                     <p>Id : {{item.id}}</p>
-                <p>Dni : {{item.dni}}</p>
-                <p>Nombre : {{item.nombre}}</p>
-                <p>Apellido : {{item.apellido}}</p>
-                <p>telefono : {{item.telefono}}</p>
-                <p>total Compras : {{item.totalCompras}}</p>
+                    <p>Dni : {{item.dni}}</p>
+                    <p>Nombre : {{item.nombre}}</p>
+                    <p>Apellido : {{item.apellido}}</p>
+                    <p>telefono : {{item.telefono}}</p>
+                    <p>total Compras : {{item.totalCompras}}</p>
                 </li>
             </ul>
         </div>
-    </div>    
+    </div>
 </div>

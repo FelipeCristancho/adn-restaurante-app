@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
 import { VentasComponent } from './ventas.component';
 
@@ -19,7 +19,17 @@ describe('VentasComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deberia crear el componente ventas', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Deberia validar los titulos de componentes',async(() =>{
+    /*De esta manera se obtiene el valor del artefacto Html*/
+    const ficture = TestBed.createComponent(VentasComponent);
+    ficture.detectChanges();    
+    /*De esta manera se obtiene el valor del artefacto Html por el ID */
+    expect((<HTMLInputElement>document.getElementById('linkListarVentas')).textContent).toEqual('Listar Ventas');
+    expect((<HTMLInputElement>document.getElementById('linkListarPlatos')).textContent).toEqual('Platos');
+    expect((<HTMLInputElement>document.getElementById('linkComprar')).textContent).toEqual('Comprar');
+  }));
 });

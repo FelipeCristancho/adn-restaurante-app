@@ -5,12 +5,12 @@
     <div class="card-body ">
         <form [formGroup]="compraForm" (submit)="comprar()">
             <div class="form-group">
-                <label for="inputAddress">Número de identificacion</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Identificacion"
+                <label for="inputDniCompra">Número de identificacion</label>
+                <input type="text" class="form-control" id="inputDniCompra" placeholder="Identificacion"
                     formControlName="dni" formControlName="cliente">
             </div>
             <label>
-                <input type="radio" value="1" formControlName="plato" name="plato">
+                <input id="radioBandeja" type="radio" value="1" formControlName="plato" name="plato">
                 <span>Bandeja Paisa</span>
             </label>
             <br>
@@ -33,7 +33,7 @@
                 <input type="radio" value="5" formControlName="plato" name="plato">
                 <span>Pargo rojo</span>
             </label>
-            <button type="submit" [disabled]="compraForm.value.cliente.length == 0 || this.compraForm.value.plato.length == 0"
+            <button id="crearVenta" type="submit" [disabled]="compraForm.value.cliente.length == 0 || this.compraForm.value.plato.length == 0"
                 class="btn btn-primary float-right">Comprar</button>
         </form>
     </div>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3 mb-2">
-    <a class="navbar-brand" href="#">Clientes</a>
+    <a class="navbar-brand" [routerLink]="['./crear']" routerLinkActive="router-link-active">Clientes</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['./crear']" routerLinkActive="router-link-active">Crear Cliente</a>
+                <a id="linkCrearCliente" class="nav-link" [routerLink]="['./crear']" routerLinkActive="router-link-active">Crear Cliente</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['./listar']" routerLinkActive="router-link-active">listar</a>
+                <a id="linkListarCliente" class="nav-link" [routerLink]="['./listar']" routerLinkActive="router-link-active">Listar</a>
             </li>
         </ul>
     </div>

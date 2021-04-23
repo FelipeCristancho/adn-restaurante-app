@@ -21,7 +21,7 @@ export class CrearClienteComponent implements OnInit {
   crear(){
     this.clienteServicio.crear(this.clienteForm.value).subscribe((data) => {
       console.log(data);
-      alert('Cliente creado correctamente');
+      //alert('Cliente creado correctamente');
     }, err => alert(err.error.mensaje));
     console.log(this.clienteForm.value);
     this.clienteForm.reset();

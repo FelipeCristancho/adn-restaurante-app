@@ -1,28 +1,28 @@
 <div class="card text-left border-secondary col-md-6 mx-auto pr-0 pl-0">
     <div class="card-header text-center bg-primary text-white">
-        Crear Usuario
+        Crear Cliente
     </div>
     <div class="card-body ">
         <form [formGroup]= "clienteForm" (submit) = "crear()">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">Nombre</label>
-                    <input type="text"  class="form-control" id="inputName" placeholder="Nombre" formControlName="nombre">
+                    <input type="text"  class="form-control" id="inputNombre" placeholder="Nombre" formControlName="nombre">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Apellido</label>
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Apellido" formControlName="apellido">
+                    <input type="text" class="form-control" id="inputApellido" placeholder="Apellido" formControlName="apellido">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Número de identificacion</label>
-                <input type="number" class="form-control" id="inputAddress" placeholder="Identificacion" formControlName="dni">
+                <input type="number" class="form-control" id="inputDni" placeholder="Identificacion" formControlName="dni">
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Número de telefono</label>
                 <input type="text" class="form-control" id="inputTel" placeholder="+57-3211234568" formControlName="telefono">
             </div>
-            <button type="submit" class="btn btn-primary float-right">Crear Usuario</button>
+            <button id="registrar" type="submit" class="btn btn-primary float-right">Crear Cliente</button>
         </form>
     </div>
 </div>

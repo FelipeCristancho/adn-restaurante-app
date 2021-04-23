@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Plato } from '../../shared/model/plato';
 import { VentasServiceService } from '../../shared/service/ventas-service.service';
 
@@ -9,8 +10,8 @@ import { VentasServiceService } from '../../shared/service/ventas-service.servic
 })
 export class PlatosComponent implements OnInit {
 
-  masVendido : Plato[] = [];
-  platos: Plato[]  = []
+  public masVendido : Observable<Plato[]>
+  public listaPlatos : Observable<Plato[]>
 
   constructor(protected ventaService : VentasServiceService) { }
 
@@ -20,17 +21,11 @@ export class PlatosComponent implements OnInit {
   }
 
   obtenerMasVendido(){
-    this.ventaService.obtenerMejorPlato().subscribe(data => {
-      this.masVendido = data;
-      console.log(data);
-    }, err => alert(err))
+    this.masVendido = this.ventaService.obtenerMejorPlato();
   }
 
   ObtenerPlatos(){
-    this.ventaService.obtenerPlatos().subscribe(data => {
-      this.platos = data;
-      console.log(data);
-    }, err => alert(err));
+    this.listaPlatos = this.ventaService.obtenerPlatos();
   }
 
 }

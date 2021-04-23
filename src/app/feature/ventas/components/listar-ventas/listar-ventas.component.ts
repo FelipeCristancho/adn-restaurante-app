@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VentasServiceService } from '../../shared/service/ventas-service.service';
 import { Venta } from '../../shared/model/venta';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-ventas',
@@ -9,27 +10,22 @@ import { Venta } from '../../shared/model/venta';
 })
 export class ListarVentasComponent implements OnInit {
 
-  ventas : Venta[] = [];
-  ventasUsuario:Venta[] = []
   dni = "";
+  public listaVentas: Observable<Venta[]>;
+  public listaVentasUsuario : Observable<Venta[]>
 
   constructor(private ventasService : VentasServiceService) { }
 
   ngOnInit(): void {
-    this.getVentas();
-  }
-
-  getVentas(){
-    this.ventasService.getVentas().subscribe(data => {
-      this.ventas = data;
-    }, err => console.log(err));    
+    this.listarVentas();
   }
 
   getVentasUsuario(){
-    this.ventasService.getVentasUsuario(this.dni)
-    .subscribe( data => {
-      this.ventasUsuario = data;
-    }, err => console.log(err));
+    this.listaVentasUsuario = this.ventasService.getVentasUsuario(this.dni);    
+  }
+
+  listarVentas(){
+    this.listaVentas = this.ventasService.getVentas();
   }
 
 }

@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of ventas">
+                <tr *ngFor="let item of listaVentas | async">
                     <td>{{item.id}}</td>
                     <td>{{item.cliente}}</td>
                     <td>{{item.plato}}</td>
@@ -28,10 +28,10 @@
         <div class="form-row">
             <div class="col-md-5"><h3 class="">Ventas de un Cliente</h3></div>
             <div class="col-md-4">                
-                    <input type="text"  id="inputDni" placeholder="Identificacion" [(ngModel)] = "dni">                
+                    <input type="text"  id="inputDniCliente" placeholder="Identificacion" [(ngModel)] = "dni">                
             </div>
             <div class="col-md-3">
-                <button (click)= "getVentasUsuario()" [disabled] = "dni.length == 0" type="button" class="btn btn-primary btn-lg">Buscar</button>
+                <button id="botonListar" (click)= "getVentasUsuario()" [disabled] = "dni.length == 0" type="button" class="btn btn-primary btn-lg">Buscar</button>
             </div>
         </div>
         <br>
@@ -46,7 +46,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of ventasUsuario">
+                <tr id="listaVentasCliente" *ngFor="let item of listaVentasUsuario | async">
                     <td>{{item.cliente}}</td>
                     <td>{{item.plato}}</td>
                     <td>{{item.precio}}</td>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Cliente } from '../../shared/modelo/cliente';
 import { ClienteService } from '../../shared/service/cliente.service';
 
@@ -9,28 +10,21 @@ import { ClienteService } from '../../shared/service/cliente.service';
 })
 export class ListarClienteComponent implements OnInit {
 
-  clientes : Cliente [] = [];
-  MejorCliente : Cliente[] = []
+  public MejorCliente : Observable<Cliente[]>;
+  public listaClientes: Observable<Cliente[]>;
 
   constructor(protected clienteService : ClienteService) { }
 
   ngOnInit(): void {
-    this.getClientes();
+    this.listarClientes();
     this.getMejorCliente();
   }
 
-  getClientes(){
-      this.clienteService.listar().subscribe(data => {
-        this.clientes = data;
-        console.log(data);
-      }, err => alert(err))
-  }
-
   getMejorCliente(){
-    this.clienteService.obtenerMejorCliente().subscribe(data => {
-      this.MejorCliente = data;
-      console.log(this.MejorCliente);
-    }, err => alert(err));
+    this.MejorCliente = this.clienteService.obtenerMejorCliente();
   }
 
+  listarClientes(){
+    this.listaClientes = this.clienteService.listar();
+  }
 }

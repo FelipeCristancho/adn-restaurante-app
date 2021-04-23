@@ -20,7 +20,7 @@ export class ComprarComponent implements OnInit {
   comprar(){
     this.ventasService.crear(this.compraForm.value).subscribe((data)=> {
       console.log(data);
-      alert('Compra realizada');
+     //alert('Compra realizada');
       }, err => alert(err.error.mensaje));
   }
 
