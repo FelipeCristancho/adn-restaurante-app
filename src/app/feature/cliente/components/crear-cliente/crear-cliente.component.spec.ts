@@ -5,14 +5,12 @@ import { ClienteService } from '../../shared/service/cliente.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-import { of } from 'rxjs';
 
 import { CrearClienteComponent } from './crear-cliente.component';
 
 describe('CrearClienteComponent', () => {
   let component: CrearClienteComponent;
   let fixture: ComponentFixture<CrearClienteComponent>;
-  let clienteService : ClienteService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
