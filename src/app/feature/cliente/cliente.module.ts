@@ -20,4 +20,5 @@ import { ListarClienteComponent } from './components/listar-cliente/listar-clien
   ],
   providers: [ClienteService]
 })
-export class ClienteModule { }
+export class ClienteModule {
+}

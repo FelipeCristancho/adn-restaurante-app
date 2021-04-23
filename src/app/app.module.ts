@@ -8,7 +8,7 @@ import { ProductoModule } from '@producto/producto.module';
 import {VentasModule} from './feature/ventas/ventas.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
 
 
 

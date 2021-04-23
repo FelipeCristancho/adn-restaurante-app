@@ -28,8 +28,8 @@ describe('ClienteComponent', () => {
     const ficture = TestBed.createComponent(ClienteComponent);
     ficture.detectChanges();    
     /*De esta manera se obtiene el valor del artefacto Html por el ID */
-    expect((<HTMLInputElement>document.getElementById('linkListarCliente')).textContent).toEqual('Listar');
-    expect((<HTMLInputElement>document.getElementById('linkCrearCliente')).textContent).toEqual('Crear Cliente');
+    expect((document.getElementById('linkListarCliente')).textContent).toEqual('Listar');
+    expect((document.getElementById('linkCrearCliente')).textContent).toEqual('Crear Cliente');
   }));
   
 });
