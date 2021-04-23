@@ -7,7 +7,7 @@ import { ListarVentasComponent } from './components/listar-ventas/listar-ventas.
 import { VentasComponent } from './components/ventas/ventas.component';
 
 import { VentasServiceService } from './shared/service/ventas-service.service';
-import { ComprarComponent } from './components/comprar/comprar.component';
+import { ComprarComponent } from './components/vender/vender.component';
 import { PlatosComponent } from './components/platos/platos.component';
 
 @NgModule({

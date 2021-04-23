@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClienteService } from '../../shared/service/cliente.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-crear-cliente',
@@ -20,9 +21,26 @@ export class CrearClienteComponent implements OnInit {
 
   crear(){
     this.clienteServicio.crear(this.clienteForm.value).subscribe(() => {
-      //alert('Cliente creado correctamente');
-    }, err => alert(err.error.mensaje));
-    this.clienteForm.reset();
+      this.mostrarAlertaOk()
+      this.clienteForm.reset();
+    }, err => this.mostrarAlertaError(err));
+  }
+
+  private mostrarAlertaOk(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Cliente creado correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+
+  private mostrarAlertaError(err){
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: err.error.mensaje        
+    })
   }
 
   private construirFormulario(){

@@ -30,6 +30,6 @@ describe('VentasComponent', () => {
     /*De esta manera se obtiene el valor del artefacto Html por el ID */
     expect((document.getElementById('linkListarVentas')).textContent).toEqual('Listar Ventas');
     expect((document.getElementById('linkListarPlatos')).textContent).toEqual('Platos');
-    expect((document.getElementById('linkComprar')).textContent).toEqual('Comprar');
+    expect((document.getElementById('linkComprar')).textContent).toEqual('Vender');
   }));
 });

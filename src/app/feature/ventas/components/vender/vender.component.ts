@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { VentasServiceService } from '../../shared/service/ventas-service.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-comprar',
-  templateUrl: './comprar.component.html',
-  styleUrls: ['./comprar.component.css']
+  templateUrl: './vender.component.html',
+  styleUrls: ['./vender.component.css']
 })
 export class ComprarComponent implements OnInit {
 
@@ -19,9 +20,27 @@ export class ComprarComponent implements OnInit {
 
   comprar(){
     this.ventasService.crear(this.compraForm.value).subscribe(()=> {
-     //alert('Compra realizada');
-      }, err => alert(err.error.mensaje));
+      this.mostrarAlertaOk();
+      this.compraForm.reset();
+      }, err => this.mostrarAlertaError(err));
   }
+
+  private mostrarAlertaOk(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Venta realizada',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+
+  private mostrarAlertaError(err){
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: err.error.mensaje        
+    })
+  }  
 
   private construirFormulario(){
     this.compraForm = new FormGroup({

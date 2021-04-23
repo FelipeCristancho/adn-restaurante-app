@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComprarComponent } from './comprar.component';
+import { ComprarComponent } from './vender.component';
 
 describe('ComprarComponent', () => {
   

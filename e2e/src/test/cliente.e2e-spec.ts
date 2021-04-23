@@ -13,10 +13,10 @@ describe('workspace-project Cliente', () => {
         cliente = new ClientePage();
     });
 
-    /*it('Deberia crear un cliente', async () => {
+    it('Deberia crear un cliente', async () => {
         const NOMBRE_CLIENTE = 'ClienteTest1';
         const APELLIDO_CLIENTE = 'ClienteTest';
-        const DNI_CLIENTE = '48316813';
+        const DNI_CLIENTE = '234743234';
         const TEL_CLIENTE = '+57-3112568734';
 
         page.navigateTo();
@@ -41,17 +41,15 @@ describe('workspace-project Cliente', () => {
         // Adicionamos las validaciones despues de la creación
         // expect(<>).toEqual(<>);
         await expect(clientesDespues).toBeGreaterThan(clientesAntes);
-    });*/
+    });
 
     it('Deberia listar todos los clientes', async () => {
         page.navigateTo();
         navBar.clickBotonProductos();
         navBar.clickBotonClientes();
         cliente.clickBotonListarClientes();
-        let totalClientes = 0;
-        await cliente.contarClientes().then(result => {
-            totalClientes = result;
-        })
+        let totalClientes = await cliente.contarClientes();
+        
         expect(totalClientes).toBeGreaterThan(1);
     });
 
