@@ -6,14 +6,10 @@ pipeline {
 
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
-    	buildDiscarder(logRotator(numToKeepStr: '3'))
- 	disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr: '3'))
+ 	  disableConcurrentBuilds()
   }
 
-  tools {
-    jdk 'JDK8_Centos'
-    gradle 'Gradle4.5_Centos'
-  }
 
   //Aquí comienzan los “items” del Pipeline
   stages{
@@ -34,15 +30,22 @@ pipeline {
 
     stage('NPM Install') {
       steps {
-        withEnv(['NPM_CONFIG_LOGLEVEL=warn']) {
-          sh 'npm install'
-        }
+        echo "------------>Installing<------------"
+        sh 'npm install'
       }
     }
 
     stage('Unit Test') {
       steps {
-        sh 'ng test --browsers ChromeHeadless --progress=false --watch false --code-coverage'
+        echo "------------>Testing<------------"
+        sh 'npm run test'
+      }
+    }
+
+    stage('Test end-to-end') {
+      steps{
+        echo "------------>Testing Protractor<------------"
+        sh 'npm run e2e'
       }
     }
 
@@ -57,7 +60,8 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'ng build --prod --progress=false'
+        echo "------------>Building<------------"
+        sh 'npm run build'
       }
     }
   }
