@@ -23,11 +23,11 @@ export class VentasServiceService {
   }
 
   public crear(venta : Venta){
-    return this.http.doPost<Venta, Boolean>(`${this.URL}`,venta);
+    return this.http.doPost<Venta, boolean>(`${this.URL}`,venta);
   }
 
   public obtenerMejorPlato(){
-    return this.http.doGet<Plato[]>(`${this.URL_PLATOS}/mejor`)
+    return this.http.doGet<Plato[]>(`${this.URL_PLATOS}/mejor`);
   }
 
   public obtenerPlatos(){
