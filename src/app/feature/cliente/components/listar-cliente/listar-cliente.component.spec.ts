@@ -1,14 +1,31 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { HttpService } from '@core/services/http.service';
+import { of } from 'rxjs';
+import {ClienteService} from '../../shared/service/cliente.service';
 
 import { ListarClienteComponent } from './listar-cliente.component';
+import { Cliente } from '../../shared/modelo/cliente';
+import { CommonModule } from '@angular/common';
 
 describe('ListarClienteComponent', () => {
   let component: ListarClienteComponent;
   let fixture: ComponentFixture<ListarClienteComponent>;
+  let clienteServicio: ClienteService;
+  const listarCliente: Cliente[] = [new Cliente('1','1','Felipe','cristancho','320245547', '20')];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarClienteComponent ]
+      declarations: [ ListarClienteComponent ],
+      providers : [ClienteService, HttpService],
+      imports : [HttpClientTestingModule,
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });
@@ -16,6 +33,8 @@ describe('ListarClienteComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ListarClienteComponent);
     component = fixture.componentInstance;
+    clienteServicio = TestBed.inject(ClienteService);
+    spyOn(clienteServicio,'listar').and.returnValue(of(listarCliente));
     fixture.detectChanges();
   });
 
@@ -26,7 +45,7 @@ describe('ListarClienteComponent', () => {
   it('Debería listar todos los registros', async(() => {
     expect(component).toBeTruthy();
     component.listaClientes.subscribe(resultado => {
-      expect(resultado.length).toBeGreaterThan(1);
+      expect(resultado.length).toBe(1);
     });
   }));
 
