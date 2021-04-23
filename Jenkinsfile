@@ -10,6 +10,11 @@ pipeline {
  	disableConcurrentBuilds()
   }
 
+  tools {
+    jdk 'JDK8_Centos'
+    gradle 'Gradle4.5_Centos'
+  }
+
   //Aquí comienzan los “items” del Pipeline
   stages{
     stage('Checkout') {
@@ -27,6 +32,20 @@ pipeline {
       }
     }
 
+    stage('NPM Install') {
+      steps {
+        withEnv(['NPM_CONFIG_LOGLEVEL=warn']) {
+          sh 'npm install'
+        }
+      }
+    }
+
+    stage('Unit Test') {
+      steps {
+        sh 'ng test --browsers ChromeHeadless --progress=false --watch false --code-coverage'
+      }
+    }
+
     stage('Static Code Analysis') {
       steps{
         echo '------------>Análisis de código estático<------------'
@@ -38,7 +57,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        echo "------------>Build<------------"
+        sh 'ng build --prod --progress=false'
       }
     }
   }
